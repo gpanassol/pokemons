@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="pokemons">
     <head>
+        
+        <meta 
+            http-equiv="Content-Security-Policy"
+            content="default-src *;
+               script-src 'self' 'unsafe-inline' 'unsafe-eval'
+                           127.0.0.1:*
+                           http://*.gstatic.com          
+                           http://*.googleapis.com
+                           https://*.gstatic.com
+                           https://*.googleapis.com
+                           ;
+               style-src  'self' 'unsafe-inline'
+                           127.0.0.1
+                           http://*.gstatic.com         
+                           http://*.googleapis.com
+                           https://*.gstatic.com
+                           https://*.googleapis.com">
+
+
         <meta charset="UTF-8">
         <title>Pokemons</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
@@ -9,8 +28,12 @@
         <!-- Controllers -->
         <script src="js/controllers/pokemonsCtrl.js"></script>
 
+        <!-- Service -->
+        <script src="js/services/pokemonsService.js"></script>                
+
+
     </head>
     <body ng-controller="pokemonsCtrl">
-        <h1 ng-bind="pokemons"></h1>
+        <p ng-bind="pokemons"></p>
     </body>
 </html>
