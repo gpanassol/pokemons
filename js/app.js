@@ -1,1 +1,1 @@
-angular.module("pokemons", []);
+angular.module("pokemons", ['angular-loading-bar', 'ngMessages']);
