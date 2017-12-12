@@ -1,12 +1,19 @@
 angular.module("pokemons").controller("pokemonsCtrl", function($scope, pokemonsService){
     
-    $scope.pokemons = [];
+    $scope.pokemon = {};
 
     var carregarPokemons = function () {
-        //$scope.pokemons = pokemonsService.getPokemons().then(function(response){
-        //    return $scope.pokemons = response.data;
-        //});
+        $scope.pokemons = pokemonsService.getPokemons("pikachu").then(function(response){
+            return $scope.pokemon = response.data;
+        });
     };
 
-    carregarPokemons();
+    $scope.buscarPokemon = function (nome) {
+        //console.log("ola");
+        $scope.pokemons = pokemonsService.getPokemons(nome).then(function(response){
+            return $scope.pokemon = response.data;
+        });
+    };
+
+    //carregarPokemons();
 });
